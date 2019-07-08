@@ -20,14 +20,21 @@ class Stopwatch {
 
     format(times) {
         return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+
+        function pad0(value) {
+            let result = value.toString();
+            if (result.length < 2) {
+                result = '0' + result;
+            }
+            return result;
+        }
     }
 
-    pad0(value) {
-        let result = value.toString();
-        if (result.length < 2) {
-            result = '0' + result;
+    start() {
+        if (!this.running) {
+            this.running = true;
+            this.watch = setInterval(() => this.step(), 10);
         }
-        return result;
     }
 }
 
