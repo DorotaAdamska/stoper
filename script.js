@@ -1,7 +1,7 @@
 class Stopwatch {
-    constructor(display) {
+    constructor(element) {
         this.running = false;
-        this.display = display;
+        this.element = element;
         this.reset();
         this.print(this.times);
     }
@@ -12,10 +12,12 @@ class Stopwatch {
             seconds: 0,
             miliseconds: 0
         };
+        this.results = []
+        this.print();
     }
 
     print() {
-        this.display.innerText = this.format(this.times);
+        this.element.querySelector('.display').innerText = this.format(this.times);
     }
 
     format(times) {
@@ -59,14 +61,34 @@ class Stopwatch {
         this.running = false;
         clearInterval(this.watch);
     }
+  
+    addResult() {
+      this.results.push({ ...this.times });
+      this.renderResults();
+    }
+  
+    renderResults() {
+      this.element.querySelector('.results').innerHTML = '';
+      this.results.forEach(result => {
+        let newLi = document.createElement('li');
+        newLi.innerText = this.format(result);
+        this.element.querySelector('.results').appendChild(newLi);
+      })
+    }
 } 
 
 
 const stopwatch = new Stopwatch(
-document.querySelector('.stopwatch'));
+document.querySelector('#stopwatch') );
 
 let startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
+
+let addResultBtn = document.getElementById('addResult');
+addResultBtn.addEventListener('click', () => stopwatch.addResult());
+
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.reset());

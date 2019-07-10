@@ -28,8 +28,13 @@ nav {
     margin: 15px;
 }
 
-.stopwatch {
+.display {
     display: flex;
     justify-content: center;
-}
+    font-size: 3em;
+  }
 
+  .results {
+    display: flex;
+    justify-content: center;
+  }
