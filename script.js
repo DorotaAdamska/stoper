@@ -18,11 +18,7 @@ class Stopwatch extends React.Component {
     }
 
     print() {
-        return (
-            <div className="display">
-                <p>{this.format(this.times)}</p>
-            </div>
-        );
+        this.display.innerText = this.format(this.times);
     }
 
     format(times) {
@@ -80,13 +76,36 @@ class Stopwatch extends React.Component {
         this.element.querySelector('.results').appendChild(newLi);
       })
     }
-} 
+
+    render() {
+        return  (
+            <div>
+                <nav className="controls">
+                    <a href="#" 
+                    className="button" 
+                    onClick={this.start}>Start</a>
+                    <a href="#" 
+                    className="button"  
+                    onClick={this.stop}>Stop</a>
+                    <a href="#" 
+                    className="button" 
+                    onClick={this.addResult}>Zapisz</a>
+                    <a href="#" 
+                    className="button" 
+                    onClick={this.reset}>Zeruj licznik</a>
+                </nav>
+            <div className="display">{this.print}</div>
+                <ul className="results"></ul> 
+            </div> 
+        );
+    } 
+}
 
 const app = React.createElement(App);
 ReactDOM.render(app, document.getElementById('stopwatch'));
 
 
-let startButton = document.getElementById('start');
+/* let startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
@@ -96,4 +115,4 @@ let addResultBtn = document.getElementById('addResult');
 addResultBtn.addEventListener('click', () => stopwatch.addResult());
 
 let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => stopwatch.reset());
+resetButton.addEventListener('click', () => stopwatch.reset()); */
