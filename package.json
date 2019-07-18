@@ -7,10 +7,37 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel script.js --watch --out-file script-compiled.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DorotaAdamska/stoper.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DorotaAdamska/stoper/issues"
+  },
+  "homepage": "https://github.com/DorotaAdamska/stoper#readme",
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "mkdirp": "^0.5.1",
+    "normalize.css": "^8.0.1",
+    "superagent": "^3.7.0",
+    "http-server": "^0.11.1"
+  },
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer-cli": "^1.0.0",
     "babel-cli": "^6.26.0",
-    "babel-preset-latest": "^6.24.1"
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.26.3",
+    "globstar": "^1.0.0",
+    "http-server": "^0.11.1",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "nu-html-checker": "^0.1.0",
+    "onchange": "^5.2.0"
   }
 }
